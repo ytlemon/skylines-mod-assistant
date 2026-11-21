@@ -1,0 +1,175 @@
+/* ============================================================
+   设计令牌 —— 霓虹 / 深色科技 / 玻璃拟态
+   改配色只需要动这一个文件
+   ============================================================ */
+:root {
+  /* 主色 */
+  --cyan: #00f0ff;
+  --cyan-soft: #7ef7ff;
+  --magenta: #ff2e97;
+  --magenta-soft: #ff86c4;
+  --violet: #7a5cff;
+
+  /* 背景层级 */
+  --bg-0: #05070d;
+  --bg-1: #0b1020;
+  --bg-2: #121a2b;
+  --bg-3: #17203a;
+
+  /* 文本 */
+  --text: #e8f4ff;
+  --text-dim: #8aa0b8;
+  --text-mute: #5a6b80;
+
+  /* 功能色 */
+  --ok: #00ff9d;
+  --warn: #ffc53d;
+  --err: #ff3b3b;
+
+  /* 玻璃与描边 */
+  --glass-1: rgba(18, 26, 43, 0.78);
+  --glass-2: rgba(10, 15, 27, 0.62);
+  --glass-3: rgba(24, 34, 56, 0.55);
+  --line: rgba(120, 190, 230, 0.14);
+  --line-strong: rgba(0, 240, 255, 0.38);
+  --line-magenta: rgba(255, 46, 151, 0.38);
+
+  /* 辉光 */
+  --glow-cyan: 0 0 24px rgba(0, 240, 255, 0.35);
+  --glow-cyan-lg: 0 18px 48px -18px rgba(0, 240, 255, 0.55);
+  --glow-magenta: 0 0 24px rgba(255, 46, 151, 0.35);
+  --glow-soft: 0 20px 50px -24px rgba(0, 0, 0, 0.9);
+
+  /* 字体 */
+  --font-sans: "Montserrat", "HarmonyOS Sans SC", "Segoe UI", "Microsoft YaHei UI",
+    "PingFang SC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, "SF Mono", monospace;
+
+  --fs-h1: 26px;
+  --fs-h2: 16px;
+  --fs-body: 13px;
+  --fs-sm: 12px;
+  --fs-xs: 11px;
+
+  /* 间距 / 圆角 */
+  --gap-1: 4px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 24px;
+  --gap-6: 32px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+  /* 动效 */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --t-fast: 140ms;
+  --t-base: 220ms;
+  --t-slow: 420ms;
+
+  /* 尺寸 */
+  --titlebar-h: 44px;
+  --statusbar-h: 28px;
+  --sidebar-w: 220px;
+  --drawer-w: 420px;
+}
+
+/* 洋红主题：把主色整体偏移，强调色互换 */
+.theme-magenta {
+  --cyan: #ff2e97;
+  --cyan-soft: #ff86c4;
+  --magenta: #00f0ff;
+  --magenta-soft: #7ef7ff;
+  --line-strong: rgba(255, 46, 151, 0.4);
+  --line-magenta: rgba(0, 240, 255, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg-0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(0, 240, 255, 0.28);
+  color: #fff;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.28), rgba(122, 92, 255, 0.28));
+  border-radius: var(--r-pill);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.55), rgba(255, 46, 151, 0.45));
+  background-clip: padding-box;
+}

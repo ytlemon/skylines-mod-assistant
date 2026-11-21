@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self'; connect-src 'self'" />
+<title>天际线 Mod 助手</title>
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+<!-- 背景层：网格 / 扫描线 / 光雾 / 粒子 -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-photo"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow--cyan"></div>
+  <div class="bg-glow bg-glow--magenta"></div>
+  <div class="bg-sweep"></div>
+  <canvas id="bgCanvas" class="bg-canvas"></canvas>
+  <div class="bg-vignette"></div>
+</div>
+
+<div class="app">
+  <!-- ============================ 标题栏 ============================ -->
+  <header class="titlebar" id="titlebar">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z" />
+          <path d="M12 7v10M3 7l9 5 9-5" />
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">SKYLINE</span><span class="brand-slash">//</span><span class="brand-sub">MOD</span>
+      </div>
+      <span class="brand-tag">ASSISTANT</span>
+    </div>
+
+    <div class="titlebar-drag">
+      <span class="titlebar-view" id="viewTitle">发现</span>
+    </div>
+
+    <div class="win-controls">
+      <button class="win-btn" id="winMin" title="最小化" aria-label="最小化">
+        <svg viewBox="0 0 12 12" width="12" height="12"><path d="M2 6h8" stroke="currentColor" stroke-width="1.2" /></svg>
+      </button>
+      <button class="win-btn" id="winMax" title="最大化" aria-label="最大化">
+        <svg viewBox="0 0 12 12" width="12" height="12"><rect x="2.5" y="2.5" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.2" /></svg>
+      </button>
+      <button class="win-btn win-btn--close" id="winClose" title="关闭" aria-label="关闭">
+        <svg viewBox="0 0 12 12" width="12" height="12"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.2" /></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="body">
+    <!-- ============================ 侧边导航 ============================ -->
+    <nav class="sidebar">
+      <button class="nav-item is-active" data-view="discover">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="6.5" /><path d="M16 16l4.5 4.5" />
+          </svg>
+        </span>
+        <span class="nav-label">发现</span>
+        <span class="nav-count" id="navDiscoverCount">0</span>
+      </button>
+
+      <button class="nav-item" data-view="installed">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 7.5 12 4l8 3.5v9L12 20l-8-3.5v-9Z" /><path d="M4 7.5 12 11l8-3.5M12 11v9" />
+          </svg>
+        </span>
+        <span class="nav-label">已安装</span>
+        <span class="nav-count" id="navInstalledCount">0</span>
+      </button>
+
+      <button class="nav-item" data-view="downloads">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 4v11m0 0 4-4m-4 4-4-4" /><path d="M4 18.5h16" />
+          </svg>
+        </span>
+        <span class="nav-label">下载队列</span>
+        <span class="nav-badge" id="navDownloadBadge">0</span>
+      </button>
+
+      <button class="nav-item" data-view="settings">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 3v2.2M12 18.8V21M4.2 7.5l1.9 1.1M17.9 15.4l1.9 1.1M4.2 16.5l1.9-1.1M17.9 8.6l1.9-1.1" />
+          </svg>
+        </span>
+        <span class="nav-label">源与设置</span>
+      </button>
+
+      <div class="sidebar-foot">
+        <div class="side-status">
+          <span class="dot" id="netDot"></span>
+          <span id="netText">未连接源</span>
+        </div>
+        <div class="side-path" id="sideGamePath" title="">未检测到游戏目录</div>
+      </div>
+    </nav>
+
+    <!-- ============================ 主内容 ============================ -->
+    <main class="content">
+
+      <!-- ------------------------ 发现 ------------------------ -->
+      <section class="view is-active" id="view-discover">
+        <div class="toolbar">
+          <label class="search">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="11" cy="11" r="6.5" /><path d="M16 16l4.5 4.5" />
+            </svg>
+            <input id="searchInput" type="text" placeholder="搜索 Mod 名称、作者或标签…" autocomplete="off" />
+            <kbd>Ctrl K</kbd>
+          </label>
+
+          <div class="chips" id="typeChips">
+            <button class="chip is-active" data-type="all">全部</button>
+            <button class="chip" data-type="mod">功能</button>
+            <button class="chip" data-type="asset">资产</button>
+            <button class="chip" data-type="map">地图</button>
+            <button class="chip" data-type="tool">工具</button>
+          </div>
+
+          <div class="toolbar-right">
+            <div class="select">
+              <select id="sortSelect" aria-label="排序">
+                <option value="updated">最近更新</option>
+                <option value="name">名称排序</option>
+                <option value="size">体积从大到小</option>
+                <option value="version">版本号</option>
+              </select>
+            </div>
+            <button class="btn btn--ghost" id="refreshBtn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7">
+                <path d="M20 12a8 8 0 1 1-2.4-5.7" /><path d="M20 4v4.5h-4.5" />
+              </svg>
+              刷新源
+            </button>
+          </div>
+        </div>
+
+        <div class="stat-strip">
+          <div class="stat">
+            <span class="stat-value" id="statTotal">0</span>
+            <span class="stat-label">可用 Mod</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="statSources">0</span>
+            <span class="stat-label">已接入源</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="statInstalled">0</span>
+            <span class="stat-label">已安装</span>
+          </div>
+          <div class="stat stat--right">
+            <span class="stat-meta" id="statMeta">等待刷新</span>
+          </div>
+        </div>
+
+        <div class="grid" id="modGrid"></div>
+
+        <div class="empty" id="discoverEmpty" hidden>
+          <div class="empty-orb"></div>
+          <h2>还没有可用的 Mod 源</h2>
+          <p>添加你自建的 GitHub 或 Gitee 仓库，助手会把所有仓库聚合到这里。</p>
+          <button class="btn btn--primary" data-goto="settings">去添加源</button>
+        </div>
+      </section>
+
+      <!-- ------------------------ 已安装 ------------------------ -->
+      <section class="view" id="view-installed">
+        <div class="view-head">
+          <div>
+            <h1>已安装 Mod</h1>
+            <p class="sub" id="installedSub">扫描本地 Addons 目录</p>
+          </div>
+          <div class="view-head-actions">
+            <button class="btn btn--ghost" id="openModsDir">打开 Mods 目录</button>
+            <button class="btn btn--primary" id="checkUpdatesBtn">检查更新</button>
+          </div>
+        </div>
+
+        <div class="list-card">
+          <div class="list-head">
+            <span class="col-name">名称</span>
+            <span class="col-ver">版本</span>
+            <span class="col-size">体积</span>
+            <span class="col-state">状态</span>
+            <span class="col-ops">操作</span>
+          </div>
+          <div id="installedList" class="list-body"></div>
+          <div class="list-empty" id="installedEmpty" hidden>
+            <p>本地还没有安装任何 Mod</p>
+            <button class="btn btn--ghost" data-goto="discover">去发现页看看</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------ 下载队列 ------------------------ -->
+      <section class="view" id="view-downloads">
+        <div class="view-head">
+          <div>
+            <h1>下载队列</h1>
+            <p class="sub" id="queueSub">0 个任务</p>
+          </div>
+          <div class="view-head-actions">
+            <button class="btn btn--ghost" id="pauseAllBtn">全部暂停</button>
+            <button class="btn btn--ghost" id="clearDoneBtn">清理已完成</button>
+          </div>
+        </div>
+
+        <div class="queue-summary">
+          <div class="queue-total-bar"><span id="queueTotalFill"></span></div>
+          <div class="queue-total-meta">
+            <span id="queueTotalText">总进度 0%</span>
+            <span id="queueSpeedText">0 KB/s</span>
+          </div>
+        </div>
+
+        <div class="queue-list" id="queueList"></div>
+
+        <div class="empty empty--sm" id="queueEmpty">
+          <div class="empty-orb"></div>
+          <h2>队列空空如也</h2>
+          <p>在发现页点击「下载」，任务会出现在这里。</p>
+        </div>
+      </section>
+
+      <!-- ------------------------ 源与设置 ------------------------ -->
+      <!-- ------------------------ 源与设置（占位） ------------------------ -->
+      <section class="view" id="view-settings">
+        <div class="soon">
+          <div class="soon-rings">
+            <span></span><span></span><span></span>
+          </div>
+          <h1 class="soon-title">敬请期待</h1>
+          <p class="soon-sub">这一栏正在重新设计，很快回来。</p>
+          <div class="soon-hint">
+            <span class="dot is-online"></span>
+            <span>当前版本可正常使用「发现 / 已安装 / 下载队列」</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============================ 详情抽屉 ============================ -->
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-scrim" id="drawerScrim"></div>
+      <div class="drawer-panel">
+        <div class="drawer-head">
+          <span class="drawer-kicker" id="drawerKicker">MOD</span>
+          <button class="icon-btn" id="drawerClose" aria-label="关闭">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+
+        <h2 class="drawer-title" id="drawerName">—</h2>
+        <div class="drawer-meta" id="drawerMeta"></div>
+        <div class="drawer-tags" id="drawerTags"></div>
+        <p class="drawer-desc" id="drawerDesc"></p>
+
+        <div class="drawer-section" id="drawerDepsSection" hidden>
+          <h3>依赖</h3>
+          <div id="drawerDeps"></div>
+        </div>
+
+        <div class="drawer-section" id="drawerChangeSection" hidden>
+          <h3>更新日志</h3>
+          <pre class="changelog" id="drawerChangelog"></pre>
+        </div>
+
+        <div class="drawer-facts" id="drawerFacts"></div>
+
+        <div class="drawer-actions">
+          <button class="btn btn--primary btn--wide" id="drawerDownload">下载并安装</button>
+          <button class="btn btn--ghost btn--wide" id="drawerHomepage">打开仓库主页</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============================ 状态栏 ============================ -->
+  <footer class="statusbar">
+    <div class="status-left">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusGame">游戏目录：未检测</span>
+    </div>
+    <div class="status-mid" id="statusLog">就绪</div>
+    <div class="status-right">
+      <button class="status-link" id="logToggle">日志</button>
+      <span class="status-sep"></span>
+      <span id="statusVersion">v1.0.0</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================ 日志抽屉 ============================ -->
+<div class="log-panel" id="logPanel" aria-hidden="true">
+  <div class="log-head">
+    <span>运行日志</span>
+    <button class="icon-btn" id="logClose" aria-label="关闭">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+  </div>
+  <div class="log-body" id="logBody"></div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="js/api.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

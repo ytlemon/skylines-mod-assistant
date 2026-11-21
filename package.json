@@ -1,0 +1,56 @@
+{
+  "name": "neon-mod-assistant",
+  "version": "1.0.0",
+  "description": "天际线 Mod 助手 · 从自建 GitHub / Gitee 仓库下载并安装 Cities: Skylines 模组",
+  "main": "main/main.js",
+  "author": "ytlemon",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "electron-builder --win --x64",
+    "preview": "node tools/preview-server.js",
+    "test": "node tools/selftest.js && node tools/selftest-net.js && node tools/selftest-catalog.js"
+  },
+  "dependencies": {
+    "semver": "6.3.1",
+    "yauzl": "2.10.0"
+  },
+  "devDependencies": {
+    "electron": "31.7.7",
+    "electron-builder": "24.13.3"
+  },
+  "build": {
+    "appId": "com.ytlemon.neonmod",
+    "productName": "天际线Mod助手",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main/**/*",
+      "renderer/**/*",
+      "package.json",
+      "node_modules/semver/**/*",
+      "node_modules/yauzl/**/*",
+      "node_modules/buffer-crc32/**/*",
+      "node_modules/fd-slicer/**/*",
+      "node_modules/pend/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "sign": "./disable-sign.js"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "天际线 Mod 助手"
+    }
+  }
+}

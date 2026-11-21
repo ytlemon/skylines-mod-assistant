@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "name": "我的天际线 Mod 仓库",
+  "updated": "2026-11-21",
+  "mods": [
+    {
+      "id": "neon-tools",
+      "name": "霓虹工具箱",
+      "version": "1.2.0",
+      "type": "mod",
+      "author": "ytlemon",
+      "tags": ["工具", "UI"],
+      "description": "一站式城市管理增强，含财政曲线与交通热力图。",
+      "installTo": "Mods",
+      "dirName": "NeonTools",
+      "downloadUrl": "https://github.com/ytlemon/neon-mods/releases/download/v1.2.0/NeonTools.zip",
+      "sha256": "",
+      "size": 1048576,
+      "deps": ["harmony-core"],
+      "homepage": "https://github.com/ytlemon/neon-mods",
+      "updated": "2026-11-20",
+      "changelog": "1.2.0\n· 新增财政曲线\n· 修复热力图不刷新"
+    },
+    {
+      "id": "harmony-core",
+      "name": "Harmony 核心库",
+      "version": "2.3.5",
+      "type": "mod",
+      "author": "community",
+      "tags": ["依赖"],
+      "description": "运行时补丁前置依赖。",
+      "installTo": "Mods",
+      "dirName": "HarmonyCore",
+      "downloadUrl": "https://github.com/ytlemon/neon-mods/releases/download/v2.3.5/HarmonyCore.zip",
+      "size": 614400,
+      "deps": []
+    },
+    {
+      "id": "neon-district-assets",
+      "name": "霓虹街区建筑包",
+      "version": "3.0.0",
+      "type": "asset",
+      "author": "ytlemon",
+      "tags": ["建筑", "夜景"],
+      "description": "42 栋带自发光招牌的高密度商业建筑。",
+      "installTo": "Assets",
+      "dirName": "NeonDistrict",
+      "downloadUrl": "https://gitee.com/ytlemon/skylines-mods/releases/download/v3.0.0/neon-district-assets.zip",
+      "size": 58720256,
+      "deps": []
+    }
+  ]
+}
