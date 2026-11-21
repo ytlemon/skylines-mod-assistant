@@ -17,7 +17,7 @@
       "installTo": "Mods",
       "dirName": "81 Tiles 2",
       "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/81-tiles-2.zip",
-      "sha256": "1692223da6c9794f2f50f43abcb842da3cd8ffa6868016d7ed99abe15132d0cc",
+      "sha256": "8fc1342fe4d4ac756a7b18979f2dc37a0b4d26ccc4a215988c49766d04b85ff4",
       "size": 233794,
       "deps": [
         "citiesharmony"
@@ -40,7 +40,7 @@
       "installTo": "Mods",
       "dirName": "CitiesHarmony",
       "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/citiesharmony.zip",
-      "sha256": "db6f197976ad5bb88584f236bf2eb777f11624d7f1d69b96b754022cdf88f291",
+      "sha256": "5e775f823b0cd4ccd8d53826231a1f2e7148c1359d152bf26012100416e640d5",
       "size": 1487087,
       "deps": [],
       "homepage": "https://github.com/ytlemon/skylines-mods",
@@ -61,7 +61,7 @@
       "installTo": "Mods",
       "dirName": "ExtraLandscapingTools",
       "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/extralandscapingtools.zip",
-      "sha256": "4744481ce974317378f19fa139335039c718944b802322d6f726682db62c4793",
+      "sha256": "1ede53942125b53dc5eae66941ab94fa53fa690ff3ab023142e514fb96a8edda",
       "size": 1004998,
       "deps": [
         "citiesharmony"
@@ -84,7 +84,7 @@
       "installTo": "Mods",
       "dirName": "LoadingScreenModRevisited",
       "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/loadingscreenmodrevisited.zip",
-      "sha256": "b01378eb92725810e90c6dbc7135f14d1b2c9e3e868a7344c78e002d03919b4b",
+      "sha256": "cb7c0b7a2a3e4559d96fba29e2acc9bb4ad611e5db8753feb88a6ddf336b6066",
       "size": 11589538,
       "deps": [
         "citiesharmony"
@@ -107,7 +107,7 @@
       "installTo": "Mods",
       "dirName": "MoveIt",
       "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/moveit.zip",
-      "sha256": "e894f9e2c496264f31fb6aa119339d0a88832e1ea7524229d66b1e5934546ab8",
+      "sha256": "9265c426f5b4bf5006f232cb3410069d35b9c843e0c65ee4431084a09d0e562f",
       "size": 1170152,
       "deps": [
         "citiesharmony"
@@ -130,7 +130,7 @@
       "installTo": "Mods",
       "dirName": "NetworkAnarchy",
       "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/networkanarchy.zip",
-      "sha256": "b69fdf43cf71b4b61dd27179672926b8f295b102ef471d4bc61e23517821bc4e",
+      "sha256": "1f474a954b5269ad459a9fb9122cd4185a7343c3ea20ce99d51737fbe29eca15",
       "size": 890354,
       "deps": [
         "citiesharmony"
@@ -153,7 +153,7 @@
       "installTo": "Mods",
       "dirName": "NetworkExtensions2",
       "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/networkextensions2.zip",
-      "sha256": "125f3e1edf47dabd2fcc848440085658db0fc1a77088f77fd90a8ff088c542c1",
+      "sha256": "0688f103257e613df89ddc429652cdb6dc02ccc14d170e5dd4c5927ccb78f089",
       "size": 113997955,
       "deps": [
         "citiesharmony"
@@ -176,7 +176,7 @@
       "installTo": "Mods",
       "dirName": "TrafficManager",
       "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/trafficmanager.zip",
-      "sha256": "d9494882239bfb0b2d01544764b4c19732f192cb18448b8833ff95df36234577",
+      "sha256": "fd850ba4c5362a0b7a2d37a97e3cb3076064ec2301dfef0fb109309220f024af",
       "size": 7531523,
       "deps": [
         "citiesharmony"
