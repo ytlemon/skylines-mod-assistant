@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "name": "天际线 Mod 仓库",
+  "updated": "2026-11-21",
+  "mods": [
+    {
+      "id": "81-tiles-2",
+      "name": "81 Tiles 2",
+      "version": "1.0.5.0",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "地图",
+        "81格"
+      ],
+      "description": "解锁全部 81 格可建造区域，配套 25 格与 49 格存档适配。",
+      "installTo": "Mods",
+      "dirName": "81 Tiles 2",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/81-tiles-2.zip",
+      "sha256": "1692223da6c9794f2f50f43abcb842da3cd8ffa6868016d7ed99abe15132d0cc",
+      "size": 233794,
+      "deps": [
+        "citiesharmony"
+      ],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    },
+    {
+      "id": "citiesharmony",
+      "name": "CitiesHarmony",
+      "version": "2.0.1",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "依赖",
+        "基础"
+      ],
+      "description": "Harmony 运行时补丁库，几乎所有功能性 Mod 的前置依赖。",
+      "installTo": "Mods",
+      "dirName": "CitiesHarmony",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/citiesharmony.zip",
+      "sha256": "db6f197976ad5bb88584f236bf2eb777f11624d7f1d69b96b754022cdf88f291",
+      "size": 1487087,
+      "deps": [],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    },
+    {
+      "id": "extralandscapingtools",
+      "name": "ExtraLandscapingTools",
+      "version": "1.0.0.0",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "地形",
+        "工具"
+      ],
+      "description": "地形笔刷增强：水体、矿石、石油等自然资源可手动绘制。",
+      "installTo": "Mods",
+      "dirName": "ExtraLandscapingTools",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/extralandscapingtools.zip",
+      "sha256": "4744481ce974317378f19fa139335039c718944b802322d6f726682db62c4793",
+      "size": 1004998,
+      "deps": [
+        "citiesharmony"
+      ],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    },
+    {
+      "id": "loadingscreenmodrevisited",
+      "name": "LoadingScreenModRevisited",
+      "version": "1.1.14.0",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "加载",
+        "优化"
+      ],
+      "description": "加载界面优化：加速载入、缺失资产与订阅报错汇总。",
+      "installTo": "Mods",
+      "dirName": "LoadingScreenModRevisited",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/loadingscreenmodrevisited.zip",
+      "sha256": "b01378eb92725810e90c6dbc7135f14d1b2c9e3e868a7344c78e002d03919b4b",
+      "size": 11589538,
+      "deps": [
+        "citiesharmony"
+      ],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    },
+    {
+      "id": "moveit",
+      "name": "MoveIt",
+      "version": "2.10.7.26689",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "工具",
+        "道路"
+      ],
+      "description": "自由移动、复制、旋转建筑与道路节点，可脱离网格对齐。",
+      "installTo": "Mods",
+      "dirName": "MoveIt",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/moveit.zip",
+      "sha256": "e894f9e2c496264f31fb6aa119339d0a88832e1ea7524229d66b1e5934546ab8",
+      "size": 1170152,
+      "deps": [
+        "citiesharmony"
+      ],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    },
+    {
+      "id": "networkanarchy",
+      "name": "NetworkAnarchy",
+      "version": "3.2.4.37405",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "道路",
+        "无碰撞"
+      ],
+      "description": "道路与轨道无碰撞放置，支持任意角度、地下与地面层叠。",
+      "installTo": "Mods",
+      "dirName": "NetworkAnarchy",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/networkanarchy.zip",
+      "sha256": "b69fdf43cf71b4b61dd27179672926b8f295b102ef471d4bc61e23517821bc4e",
+      "size": 890354,
+      "deps": [
+        "citiesharmony"
+      ],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    },
+    {
+      "id": "networkextensions2",
+      "name": "NetworkExtensions2",
+      "version": "1.0.0.0",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "道路",
+        "扩展包"
+      ],
+      "description": "大量新增道路类型：单行道、非对称路、停车场与窄路。",
+      "installTo": "Mods",
+      "dirName": "NetworkExtensions2",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/networkextensions2.zip",
+      "sha256": "125f3e1edf47dabd2fcc848440085658db0fc1a77088f77fd90a8ff088c542c1",
+      "size": 113997955,
+      "deps": [
+        "citiesharmony"
+      ],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    },
+    {
+      "id": "trafficmanager",
+      "name": "TrafficManager",
+      "version": "11.9.4.25100",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "交通",
+        "AI"
+      ],
+      "description": "交通管理中枢：车道连接、信号灯定时、优先路权与限速。",
+      "installTo": "Mods",
+      "dirName": "TrafficManager",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/trafficmanager.zip",
+      "sha256": "d9494882239bfb0b2d01544764b4c19732f192cb18448b8833ff95df36234577",
+      "size": 7531523,
+      "deps": [
+        "citiesharmony"
+      ],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    },
+    {
+      "id": "unlimitedoutsideconnectionsrevisited",
+      "name": "UnlimitedOutsideConnectionsRevisited",
+      "version": "1.0.0",
+      "type": "mod",
+      "author": "community",
+      "tags": [
+        "交通",
+        "连接"
+      ],
+      "description": "解除城际连接数量限制，允许更多对外高速与铁路。",
+      "installTo": "Mods",
+      "dirName": "UnlimitedOutsideConnectionsRevisited",
+      "downloadUrl": "https://github.com/ytlemon/skylines-mod-assistant/releases/download/mods-20261121/unlimitedoutsideconnectionsrevisited.zip",
+      "sha256": "c1ca889138ad69a010aba7876c5dcd3340fa5005512144cb9d8ae85253bba780",
+      "size": 6061,
+      "deps": [
+        "citiesharmony"
+      ],
+      "homepage": "https://github.com/ytlemon/skylines-mods",
+      "updated": "2026-11-21",
+      "changelog": ""
+    }
+  ]
+}
